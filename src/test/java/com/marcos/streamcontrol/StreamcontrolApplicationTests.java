@@ -1,0 +1,13 @@
+package com.marcos.streamcontrol;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class StreamcontrolApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
