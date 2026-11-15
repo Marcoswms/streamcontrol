@@ -30,6 +30,14 @@ public class Assinatura {
 
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNomePlataforma() {
         return nomePlataforma;
     }
@@ -50,7 +58,7 @@ public class Assinatura {
         return dataAssinatura;
     }
 
-    public void setDataAssinatura() {
+    public void setDataAssinatura(LocalDate dataAssinatura) {
         this.dataAssinatura = dataAssinatura;
     }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StreamControl - Assinatura</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Assinatura</h1>
+
+    <form th:action="@{/assinaturas/salvar}" th:object="${assinatura}" method="post">
+        <input type="hidden" th:field="*{id}">
+
+        <label>Plataforma</label>
+        <input type="text" th:field="*{nomePlataforma}">
+        <span class="erro" th:if="${#fields.hasErrors('nomePlataforma')}"
+              th:errors="*{nomePlataforma}"></span>
+
+        <label>Valor mensal (R$)</label>
+        <input type="number" step="0.01" th:field="*{valorMensal}">
+        <span class="erro" th:if="${#fields.hasErrors('valorMensal')}"
+              th:errors="*{valorMensal}"></span>
+
+        <label>Data da assinatura</label>
+        <input type="date" th:field="*{dataAssinatura}">
+        <span class="erro" th:if="${#fields.hasErrors('dataAssinatura')}"
+              th:errors="*{dataAssinatura}"></span>
+
+        <button class="btn" type="submit">Salvar</button>
+        <a th:href="@{/assinaturas}">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>

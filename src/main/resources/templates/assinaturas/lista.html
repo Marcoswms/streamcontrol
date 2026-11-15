@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StreamControl</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>StreamControl</h1>
+
+    <a class="btn" th:href="@{/assinaturas/novo}">+ Nova assinatura</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Plataforma</th>
+            <th>Valor mensal</th>
+            <th>Data da assinatura</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="a : ${assinaturas}">
+            <td th:text="${a.nomePlataforma}"></td>
+            <td th:text="'R$ ' + ${#numbers.formatDecimal(a.valorMensal, 1, 'POINT', 2, 'COMMA')}"></td>
+            <td th:text="${#temporals.format(a.dataAssinatura, 'dd/MM/yyyy')}"></td>
+            <td>
+                <a th:href="@{/assinaturas/editar/{id}(id=${a.id})}">Editar</a>
+                <a class="excluir" th:href="@{/assinaturas/excluir/{id}(id=${a.id})}"
+                   onclick="return confirm('Excluir esta assinatura?')">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p class="total">
+        Gasto mensal total:
+        <strong th:text="'R$ ' + ${#numbers.formatDecimal(total, 1, 'POINT', 2, 'COMMA')}"></strong>
+    </p>
+</div>
+</body>
+</html>
