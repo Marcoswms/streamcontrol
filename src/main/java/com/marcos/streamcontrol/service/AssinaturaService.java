@@ -21,7 +21,7 @@ public class AssinaturaService {
         return assinaturaRepository.findAll();
     }
 
-    public Assinatura buscarporId(Long id) {
+    public Assinatura buscarPorId(Long id) {
         return assinaturaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Assinatura não encontrada"));
     }
 
