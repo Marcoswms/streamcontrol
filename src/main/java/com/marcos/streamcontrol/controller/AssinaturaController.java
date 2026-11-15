@@ -2,6 +2,7 @@ package com.marcos.streamcontrol.controller;
 
 import com.marcos.streamcontrol.entity.Assinatura;
 import com.marcos.streamcontrol.service.AssinaturaService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ public class AssinaturaController {
     }
 
     @PostMapping("/salvar")
-    public String salvar(@ModelAttribute Assinatura assinatura) {
+    public String salvar(@Valid @ModelAttribute Assinatura assinatura) {
         assinaturaService.salvar(assinatura);
         return "redirect:/assinaturas";
     }
